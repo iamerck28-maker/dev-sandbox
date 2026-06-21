@@ -168,12 +168,30 @@
     body.dark .theme-toggle .moon { opacity: 1; }
 
     /* ========== Hero ========== */
+    /* ========== Gradient Flow Animation ========== */
+    @keyframes gradientFlow {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     .hero {
-      background: linear-gradient(135deg, var(--hero-from), var(--hero-to));
+      background: #ec4899;
       color: #fff;
       text-align: center;
       padding: 100px 0 80px;
+      position: relative;
+      overflow: hidden;
       transition: background 0.3s;
+    }
+
+    /* subtle overlay shimmer */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.08) 0%, transparent 60%);
+      pointer-events: none;
     }
 
     .hero h1 {
