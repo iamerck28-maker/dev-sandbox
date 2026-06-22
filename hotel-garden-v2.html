@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Garden Majalengka — Istirahat Nyaman di Pusat Kota</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="hotel-style.css">
+</head>
+<body>
+  <nav id="mainNav">
+    <div class="container">
+      <a href="#" class="logo"><span class="logo-icon">🌿</span>Hotel Garden</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#kamar">Kamar</a></li>
+        <li><a href="#fasilitas">Fasilitas</a></li>
+        <li><a href="#lokasi">Lokasi</a></li>
+        <li><a href="#testimoni">Testimoni</a></li>
+        <li><a href="#booking" class="nav-cta">Reservasi</a></li>
+      </ul>
+      <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    </div>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="hero-bg"><img src="https://source.unsplash.com/1600x900/?hotel-majalengka" alt="Hotel Garden Majalengka" style="width:100%;height:100%;object-fit:cover"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content fade-up">
+      <span class="hero-label">Hotel &amp; Resort — Majalengka</span>
+      <h1>Hotel Garden</h1>
+      <p class="hero-tagline">Istirahat Nyaman di Pusat Majalengka</p>
+      <div class="hero-btns">
+        <a href="#kamar" class="btn-primary">Jelajahi Kamar</a>
+        <a href="https://wa.me/6281234567890?text=Halo%20Hotel%20Garden%2C%20saya%20mau%20booking" class="btn-outline" target="_blank">Reservasi Sekarang</a>
+      </div>
+    </div>
+    <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
+  </section>
+
+  <section class="about-section" id="tentang">
+    <div class="container">
+      <div class="about-grid fade-up">
+        <div class="about-text">
+          <span class="section-label">Tentang Kami</span>
+          <h2 class="section-title">Menginap Seperti<br>di Rumah Sendiri</h2>
+          <p>Hotel Garden Majalengka menawarkan pengalaman menginap yang autentik dan nyaman. Terletak di jantung kota, kami menghadirkan perpaduan sempurna antara kehangatan tradisional Sunda dan kenyamanan modern.</p>
+          <p>Setiap kamar dirancang dengan teliti untuk memberikan ketenangan — tempat yang sempurna setelah seharian menjelajahi Majalengka.</p>
+          <a href="#kamar" class="btn-text">Pelajari Lebih Lanjut →</a>
+        </div>
+        <div class="about-image"><img src="https://source.unsplash.com/800x600/?hotel-garden" alt="Hotel Garden" style="width:100%;height:100%;object-fit:cover"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kamar" class="rooms-section">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-label">Pilihan Kamar</span>
+        <h2 class="section-title">Kamar &amp; Suites</h2>
+        <p class="section-sub">Pilih kamar yang paling cocok — dari yang cozy buat solo traveler sampai yang luas buat keluarga.</p>
+      </div>
+      <div class="rooms-grid">
+        <div class="room-card fade-up d1">
+          <div class="room-img std"><img src="https://source.unsplash.com/800x600/?hotel-room" alt="Standard Room" style="width:100%;height:100%;object-fit:cover;transition:transform .6s"><div class="room-overlay"><span class="room-badge">Populer</span></div></div>
+          <div class="room-body"><h3>Standard Room</h3><p>Kamar cozy buat solo traveler. AC, TV LED, WiFi kencang — semua ada.</p><div class="room-footer"><div class="room-price">Rp250.000 <small>/ malam</small></div><a onclick="openBooking()" class="room-book">Reservasi →</a></div></div>
+        </div>
+        <div class="room-card fade-up d2">
+          <div class="room-img dlx"><img src="https://source.unsplash.com/800x600/?hotel-suite" alt="Deluxe Room" style="width:100%;height:100%;object-fit:cover;transition:transform .6s"><div class="room-overlay"><span class="room-badge">Best Seller</span></div></div>
+          <div class="room-body"><h3>Deluxe Room</h3><p>Lebih luas, kasur king-size, view kota. Cocok buat staycation.</p><div class="room-footer"><div class="room-price">Rp350.000 <small>/ malam</small></div><a onclick="openBooking()" class="room-book">Reservasi →</a></div></div>
+        </div>
+        <div class="room-card fade-up d3">
+          <div class="room-img fam"><img src="https://source.unsplash.com/800x600/?family-hotel" alt="Family Room" style="width:100%;height:100%;object-fit:cover;transition:transform .6s"><div class="room-overlay"><span class="room-badge">Keluarga</span></div></div>
+          <div class="room-body"><h3>Family Room</h3><p>Kapasitas 4 orang, kamar mandi luas, dekat kolam renang.</p><div class="room-footer"><div class="room-price">Rp500.000 <small>/ malam</small></div><a onclick="openBooking()" class="room-book">Reservasi →</a></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fasilitas" class="facilities-section">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-label">Fasilitas</span>
+        <h2 class="section-title">Yang Kami Tawarkan</h2>
+      </div>
+      <div class="facilities-grid">
+        <div class="facility-item fade-up d1"><div class="facility-icon">🍽️</div><h4>Restoran</h4><p>Masakan khas Sunda</p></div>
+        <div class="facility-item fade-up d1"><div class="facility-icon">📶</div><h4>WiFi Gratis</h4><p>Kencang di seluruh area</p></div>
+        <div class="facility-item fade-up d2"><div class="facility-icon">🅿️</div><h4>Parkir Luas</h4><p>24 jam CCTV</p></div>
+        <div class="facility-item fade-up d2"><div class="facility-icon">🏢</div><h4>Ruang Meeting</h4><p>Kapasitas 30-50 orang</p></div>
+        <div class="facility-item fade-up d3"><div class="facility-icon">🧹</div><h4>Room Service</h4><p>24 jam</p></div>
+        <div class="facility-item fade-up d3"><div class="facility-icon">🏊</div><h4>Kolam Renang</h4><p>Bersih &amp; nyaman</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="lokasi" class="location-section">
+    <div class="location-grid">
+      <div class="location-info fade-up">
+        <span class="section-label">Lokasi</span>
+        <h2 class="section-title">Strategis di Pusat Kota</h2>
+        <p>Hotel Garden berada di lokasi paling strategis di Majalengka. Gampang diakses dari mana aja.</p>
+        <div class="location-list">
+          <div class="location-item"><span>🏛️</span> 5 menit ke Alun-Alun</div>
+          <div class="location-item"><span>🚂</span> 10 menit ke Stasiun</div>
+          <div class="location-item"><span>✈️</span> 30 menit ke Bandara Kertajati</div>
+        </div>
+        <a href="https://maps.google.com/?q=Hotel+Garden+Majalengka" class="btn-outline" target="_blank" style="margin-top:24px;border-color:var(--primary);color:var(--primary-dark)">Lihat di Maps →</a>
+      </div>
+      <div class="location-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15818.1!2d108.22!3d-6.84!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f0a5c0f0f0f0f%3A0x0!2sMajalengka!5e0!3m2!1sid!2sid" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimoni" class="testimonials-section">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-label">Testimoni</span>
+        <h2 class="section-title">Kata Mereka yang Sudah Menginap</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testi-card fade-up d1"><div class="testi-stars">★★★★★</div><p>"Bulan lalu nginep 3 malam. Kamar bersih, staf ramah, harga nggak bikin kantong jebol. Langganan deh!"</p><div class="testi-author"><div class="testi-avatar">RH</div><div><div class="testi-name">Rudi H.</div><div class="testi-role">Pebisnis, Jakarta</div></div></div></div>
+        <div class="testi-card fade-up d2"><div class="testi-stars">★★★★★</div><p>"Anak-anak langsung lari ke kolam renang. Makanannya enak, harganya masuk akal. Liburan keluarga yang perfect!"</p><div class="testi-author"><div class="testi-avatar">SW</div><div><div class="testi-name">Sari W.</div><div class="testi-role">Wisatawan, Bandung</div></div></div></div>
+        <div class="testi-card fade-up d3"><div class="testi-stars">★★★★★</div><p>"Meeting di Majalengka? Nginap di sini aja. Dekat mana-mana, WiFi kencang, ada ruang meeting juga."</p><div class="testi-author"><div class="testi-avatar">AF</div><div><div class="testi-name">Andi F.</div><div class="testi-role">Karyawan Swasta, Cirebon</div></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" id="booking">
+    <div class="cta-bg"><img src="https://source.unsplash.com/1600x600/?hotel-pool" alt="Hotel Pool" style="width:100%;height:100%;object-fit:cover;opacity:.2"></div>
+    <div class="cta-overlay"></div>
+    <div class="cta-content fade-up">
+      <h2>Siap Menginap?</h2>
+      <p>Chat langsung via WhatsApp untuk reservasi cepat</p>
+      <div class="cta-btns">
+        <button onclick="openBooking()" class="btn-primary">Reservasi Sekarang</button>
+        <a href="tel:+6281234567890" class="btn-outline">📞 Telepon</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div><a href="#" class="logo" style="margin-bottom:16px;display:inline-flex"><span class="logo-icon">🌿</span> Hotel Garden</a><p>Hotel keluarga di pusat Majalengka. Nyaman, aman, dan bikin betah.</p></div>
+        <div><h4>Reservasi</h4><p><a href="https://wa.me/6281234567890" target="_blank">WhatsApp</a></p><p><a href="tel:+6281234567890">Telepon</a></p></div>
+        <div><h4>Menu</h4><p><a href="#kamar">Kamar</a></p><p><a href="#fasilitas">Fasilitas</a></p><p><a href="#lokasi">Lokasi</a></p></div>
+        <div><h4>Kontak</h4><p>Jl. Nasional III, Majalengka</p><p>0812-3456-7890</p></div>
+      </div>
+      <div class="footer-bottom">&copy; 2026 Hotel Garden Majalengka. All rights reserved.</div>
+    </div>
+  </footer>
+
+<!-- BOOKING MODAL -->
+  <div class="booking-modal" id="bookingModal">
+    <div class="booking-overlay" onclick="closeBooking()"></div>
+    <div class="booking-content glass">
+      <button class="booking-close" onclick="closeBooking()">✕</button>
+      <h3>📝 Booking Kamar</h3>
+      <p class="booking-sub">Isi data di bawah, nanti kita chat via WhatsApp</p>
+      <form id="bookingForm" onsubmit="sendBooking(event)">
+        <div class="form-group">
+          <label>Nama Lengkap</label>
+          <input type="text" id="bName" placeholder="Contoh: Budi Santoso" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>No. WhatsApp</label>
+            <input type="tel" id="bPhone" placeholder="0812-xxxx-xxxx" required>
+          </div>
+          <div class="form-group">
+            <label>Jumlah Tamu</label>
+            <select id="bGuests">
+              <option>1 Orang</option>
+              <option selected>2 Orang</option>
+              <option>3 Orang</option>
+              <option>4 Orang</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Check-in</label>
+            <input type="date" id="bCheckin" required>
+          </div>
+          <div class="form-group">
+            <label>Check-out</label>
+            <input type="date" id="bCheckout" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Tipe Kamar</label>
+          <select id="bRoom">
+            <option value="Standard Room - Rp250.000/malam">Standard Room — Rp250.000/malam</option>
+            <option value="Deluxe Room - Rp350.000/malam">Deluxe Room — Rp350.000/malam</option>
+            <option value="Family Room - Rp500.000/malam">Family Room — Rp500.000/malam</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Catatan (Opsional)</label>
+          <textarea id="bNote" placeholder="Contoh: Butuh extra pillow, arrival jam 14:00, dll." rows="2"></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%;justify-content:center;margin-top:8px">
+          💬 Kirim via WhatsApp
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Booking Modal
+    function openBooking() {
+      document.getElementById('bookingModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      // Set min date to today
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById('bCheckin').min = today;
+      document.getElementById('bCheckout').min = today;
+    }
+    function closeBooking() {
+      document.getElementById('bookingModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    // Close on escape
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeBooking(); });
+
+    // Send to WhatsApp
+    function sendBooking(e) {
+      e.preventDefault();
+      const name = document.getElementById('bName').value;
+      const phone = document.getElementById('bPhone').value;
+      const guests = document.getElementById('bGuests').value;
+      const checkin = document.getElementById('bCheckin').value;
+      const checkout = document.getElementById('bCheckout').value;
+      const room = document.getElementById('bRoom').value;
+      const note = document.getElementById('bNote').value;
+
+      // Format dates
+      const ci = new Date(checkin).toLocaleDateString('id-ID', {weekday:'long', day:'numeric', month:'long', year:'numeric'});
+      const co = new Date(checkout).toLocaleDateString('id-ID', {weekday:'long', day:'numeric', month:'long', year:'numeric'});
+
+      // Calculate nights
+      const nights = Math.ceil((new Date(checkout) - new Date(checkin)) / (1000*60*60*24));
+
+      // Room price
+      const prices = {'Standard Room': 250000, 'Deluxe Room': 350000, 'Family Room': 500000};
+      const roomName = room.split(' - ')[0];
+      const total = prices[roomName] * nights;
+
+      // Build WhatsApp message
+      let msg = '🏨 *HOTEL GARDEN MAJALENGKA*%0A%0A';
+      msg += '📋 *DATA BOOKING*%0A';
+      msg += '━━━━━━━━━━━━━━━━━%0A';
+      msg += '👤 Nama: ' + encodeURIComponent(name) + '%0A';
+      msg += '📱 WhatsApp: ' + encodeURIComponent(phone) + '%0A';
+      msg += '👥 Tamu: ' + encodeURIComponent(guests) + '%0A';
+      msg += '🛏️ Kamar: ' + encodeURIComponent(room) + '%0A';
+      msg += '📅 Check-in: ' + encodeURIComponent(ci) + '%0A';
+      msg += '📅 Check-out: ' + encodeURIComponent(co) + '%0A';
+      msg += '🌙 Durasi: ' + nights + ' malam%0A';
+      msg += '💰 Total: Rp' + total.toLocaleString('id-ID') + '%0A';
+      if (note) msg += '📝 Catatan: ' + encodeURIComponent(note) + '%0A';
+      msg += '%0A━━━━━━━━━━━━━━━━━%0A';
+      msg += 'Mohon konfirmasi ketersediaan kamar ya, Kak 🙏';
+
+      // Open WhatsApp
+      window.open('https://wa.me/6281234567890?text=' + msg, '_blank');
+      
+      // Show success feedback
+      alert('Booking dikirim via WhatsApp! 🎉');
+      closeBooking();
+    }
+  </script>
+
+</body>
+</html>
+
+</body>
+</html>
