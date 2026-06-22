@@ -1,683 +1,126 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hotel Garden Majalengka — Istirahat Nyaman di Pusat Kota</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* ========== RESET ========== */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #fafaf8;
-      color: #3d3d3d;
-      line-height: 1.7;
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:#faf9f7;color:#2d2d2d;line-height:1.7;overflow-x:hidden}
+    a{text-decoration:none;color:inherit}
+    ul{list-style:none}
+    .container{max-width:1200px;margin:0 auto;padding:0 24px}
+    :root{
+      --primary:#3d5a3e;--primary-dark:#2c4a2d;--primary-light:#e8ede8;
+      --accent:#b8965a;--accent-light:#f0e6d2;
+      --cream:#f5f1eb;--cream-dark:#e8e2d8;
+      --text:#2d2d2d;--text-light:#6b6b6b;--text-muted:#999;
+      --white:#fff;--bg:#faf9f7;--card:#fff;
+      --shadow-sm:0 2px 8px rgba(0,0,0,.04);
+      --shadow:0 4px 24px rgba(0,0,0,.06);
+      --shadow-lg:0 12px 48px rgba(0,0,0,.1);
+      --radius:16px;--radius-lg:24px
     }
-    a { text-decoration: none; color: inherit; }
-    ul { list-style: none; }
-    img { max-width: 100%; display: block; }
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-
-    /* ========== COLOR TOKENS ========== */
-    :root {
-      --green: #68745e;
-      --green-dark: #4d5545;
-      --green-light: #d4d9c8;
-      --cream: #f5f0e8;
-      --cream-dark: #e8dfd0;
-      --gold: #c9a96e;
-      --gold-light: #e8d5b0;
-      --brown: #8b7355;
-      --text: #3d3d3d;
-      --text-light: #7a7a7a;
-      --white: #ffffff;
-      --bg: #fafaf8;
-      --card: #ffffff;
-      --shadow: 0 4px 20px rgba(0,0,0,0.06);
-      --shadow-hover: 0 8px 32px rgba(0,0,0,0.1);
-    }
-
-    /* ========== NAV ========== */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      background: rgba(250,250,248,0.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--cream-dark);
-      transition: all 0.3s;
-    }
-    nav .container {
-      display: flex; align-items: center; justify-content: space-between;
-      height: 68px;
-    }
-    .logo {
-      display: flex; align-items: center; gap: 10px;
-      font-weight: 700; font-size: 1.2rem; color: var(--green-dark);
-    }
-    .logo-icon {
-      width: 36px; height: 36px;
-      background: linear-gradient(135deg, var(--green), var(--gold));
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      color: #fff; font-size: 1.1rem;
-    }
-    .nav-links { display: flex; gap: 32px; align-items: center; }
-    .nav-links a {
-      font-size: 0.85rem; font-weight: 500; color: var(--text);
-      transition: color 0.2s; letter-spacing: 0.3px;
-    }
-    .nav-links a:hover { color: var(--gold); }
-    .nav-cta {
-      background: var(--green); color: #fff !important;
-      padding: 8px 20px; border-radius: 8px; font-weight: 600;
-      transition: background 0.2s !important;
-    }
-    .nav-cta:hover { background: var(--green-dark) !important; color: #fff !important; }
-    .menu-btn { display: none; background: none; border: none; font-size: 1.8rem; cursor: pointer; color: var(--text); }
-
-    /* ========== HERO ========== */
-    .hero {
-      min-height: 100vh;
-      display: flex; align-items: center;
-      background: linear-gradient(135deg, var(--cream) 0%, var(--green-light) 50%, var(--cream) 100%);
-      position: relative; overflow: hidden;
-      padding: 100px 0 60px;
-    }
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(circle at 80% 30%, rgba(201,169,110,0.15) 0%, transparent 50%),
-                  radial-gradient(circle at 20% 70%, rgba(104,116,94,0.1) 0%, transparent 50%);
-      pointer-events: none;
-    }
-    .hero .container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: center;
-      position: relative;
-    }
-    .hero-content h1 {
-      font-size: 2.8rem;
-      font-weight: 800;
-      color: var(--green-dark);
-      line-height: 1.2;
-      margin-bottom: 16px;
-    }
-    .hero-content h1 span { color: var(--gold); }
-    .hero-content p {
-      font-size: 1.05rem;
-      color: var(--text-light);
-      margin-bottom: 28px;
-      max-width: 500px;
-    }
-    .hero-btns {
-      display: flex; gap: 12px; flex-wrap: wrap;
-    }
-    .btn-primary {
-      display: inline-block; background: var(--green);
-      color: #fff; padding: 14px 32px; border-radius: 10px;
-      font-weight: 600; font-size: 0.9rem;
-      transition: all 0.3s; border: none; cursor: pointer;
-    }
-    .btn-primary:hover { background: var(--green-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(104,116,94,0.3); }
-    .btn-secondary {
-      display: inline-block; background: transparent;
-      color: var(--green-dark); padding: 14px 32px; border-radius: 10px;
-      font-weight: 600; font-size: 0.9rem;
-      border: 2px solid var(--green); cursor: pointer;
-      transition: all 0.3s;
-    }
-    .btn-secondary:hover { background: var(--green); color: #fff; transform: translateY(-2px); }
-    .hero-image {
-      background: var(--cream-dark);
-      border-radius: 20px;
-      aspect-ratio: 4/3;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--text-light); font-size: 1rem;
-      overflow: hidden; position: relative;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
-    }
-    .hero-image .placeholder {
-      background: linear-gradient(135deg, var(--green-light), var(--cream-dark));
-      width: 100%; height: 100%;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 12px; font-weight: 500;
-    }
-    .hero-image .placeholder span { font-size: 3rem; }
-
-    /* ========== SECTIONS ========== */
-    section { padding: 80px 0; }
-    .section-title {
-      text-align: center;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--green-dark);
-      margin-bottom: 12px;
-    }
-    .section-sub {
-      text-align: center;
-      color: var(--text-light);
-      font-size: 0.95rem;
-      margin-bottom: 48px;
-      max-width: 550px;
-      margin-left: auto; margin-right: auto;
-    }
-    .section-divider {
-      width: 60px; height: 3px;
-      background: var(--gold);
-      margin: 0 auto 40px;
-      border-radius: 4px;
-    }
-
-    /* ========== ROOMS ========== */
-    .rooms-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 28px;
-    }
-    .room-card {
-      background: var(--card);
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: all 0.3s;
-    }
-    .room-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-hover);
-    }
-    .room-img {
-      height: 200px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1rem; font-weight: 500;
-    }
-    .room-img.std { background: linear-gradient(135deg, #e8dfd0, #d4d9c8); }
-    .room-img.dlx { background: linear-gradient(135deg, #d4d9c8, #c9a96e); }
-    .room-img.fam { background: linear-gradient(135deg, #c9a96e, #b8a47c); }
-    .room-img .placeholder-icon { font-size: 2.5rem; margin-bottom: 4px; }
-    .room-body { padding: 24px; }
-    .room-body h3 { font-size: 1.15rem; font-weight: 600; color: var(--green-dark); margin-bottom: 4px; }
-    .room-body .badge {
-      display: inline-block;
-      background: var(--green-light);
-      color: var(--green-dark);
-      font-size: 0.7rem; font-weight: 600;
-      padding: 3px 10px; border-radius: 20px;
-      margin-bottom: 12px;
-    }
-    .room-body p { font-size: 0.88rem; color: var(--text-light); margin-bottom: 16px; }
-    .room-body .price {
-      font-size: 1.1rem; font-weight: 700; color: var(--gold);
-    }
-    .room-body .price small { font-size: 0.75rem; font-weight: 400; color: var(--text-light); }
-    .room-body .room-btn {
-      display: inline-block; margin-top: 12px;
-      color: var(--green); font-weight: 600; font-size: 0.85rem;
-      transition: color 0.2s;
-    }
-    .room-body .room-btn:hover { color: var(--gold); }
-
-    /* ========== FACILITIES ========== */
-    .facilities-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-    }
-    .facility-card {
-      background: var(--card);
-      border: 1px solid var(--cream-dark);
-      border-radius: 16px;
-      padding: 28px 24px;
-      text-align: center;
-      transition: all 0.3s;
-    }
-    .facility-card:hover {
-      border-color: var(--gold);
-      box-shadow: var(--shadow);
-    }
-    .facility-card .icon { font-size: 2rem; margin-bottom: 12px; }
-    .facility-card h4 { font-size: 1rem; font-weight: 600; color: var(--green-dark); margin-bottom: 6px; }
-    .facility-card p { font-size: 0.85rem; color: var(--text-light); }
-
-    /* ========== LOCATION ========== */
-    .location-wrap {
-      background: var(--cream);
-      border-radius: 20px;
-      padding: 48px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
-    }
-    .location-info h3 { font-size: 1.3rem; font-weight: 600; color: var(--green-dark); margin-bottom: 16px; }
-    .location-info p { color: var(--text-light); font-size: 0.9rem; margin-bottom: 20px; }
-    .location-list { display: flex; flex-direction: column; gap: 12px; }
-    .location-item {
-      display: flex; align-items: center; gap: 12px;
-      font-size: 0.9rem; color: var(--text);
-    }
-    .location-item .emoji { font-size: 1.1rem; }
-    .location-map {
-      background: var(--cream-dark);
-      border-radius: 14px;
-      aspect-ratio: 4/3;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--text-light);
-      font-size: 0.9rem;
-    }
-
-    /* ========== TESTIMONIALS ========== */
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
-    }
-    .testi-card {
-      background: var(--card);
-      border: 1px solid var(--cream-dark);
-      border-radius: 16px;
-      padding: 28px 24px;
-      position: relative;
-    }
-    .testi-card .quote-icon {
-      font-size: 2rem; color: var(--gold); opacity: 0.3;
-      line-height: 1; margin-bottom: -8px;
-    }
-    .testi-card p {
-      font-size: 0.92rem; color: var(--text-light); font-style: italic;
-      margin: 12px 0 20px; line-height: 1.7;
-    }
-    .testi-card .author {
-      display: flex; align-items: center; gap: 12px;
-    }
-    .testi-card .avatar {
-      width: 44px; height: 44px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--green), var(--gold));
-      display: flex; align-items: center; justify-content: center;
-      color: #fff; font-weight: 600; font-size: 0.85rem;
-      flex-shrink: 0;
-    }
-    .testi-card .name { font-weight: 600; font-size: 0.88rem; color: var(--green-dark); }
-    .testi-card .role { font-size: 0.78rem; color: var(--text-light); }
-    .stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 8px; }
-
-    /* ========== CTA ========== */
-    .cta-section {
-      background: linear-gradient(135deg, var(--green-dark), var(--green));
-      padding: 80px 0;
-      text-align: center;
-    }
-    .cta-section h2 {
-      font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 12px;
-    }
-    .cta-section p {
-      color: rgba(255,255,255,0.8); font-size: 1rem; margin-bottom: 32px;
-    }
-    .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-    .cta-section .btn-primary {
-      background: var(--gold); color: #fff;
-    }
-    .cta-section .btn-primary:hover { background: #b89450; }
-    .cta-section .btn-secondary {
-      border-color: rgba(255,255,255,0.4); color: #fff;
-    }
-    .cta-section .btn-secondary:hover { background: rgba(255,255,255,0.1); }
-
-    /* ========== FOOTER ========== */
-    footer {
-      background: var(--cream);
-      padding: 40px 0 24px;
-      color: var(--text-light);
-      font-size: 0.85rem;
-    }
-    footer .container {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 40px;
-    }
-    footer h4 { font-weight: 600; color: var(--green-dark); margin-bottom: 12px; font-size: 0.9rem; }
-    footer p, footer a { font-size: 0.85rem; color: var(--text-light); }
-    footer a:hover { color: var(--gold); }
-    footer .footer-bottom {
-      grid-column: 1 / -1;
-      text-align: center;
-      padding-top: 24px;
-      border-top: 1px solid var(--cream-dark);
-      font-size: 0.8rem;
-    }
-    .footer-social { display: flex; gap: 12px; margin-top: 12px; }
-    .footer-social a {
-      width: 36px; height: 36px;
-      border-radius: 50%;
-      background: var(--green-light);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1rem;
-      transition: background 0.2s;
-    }
-    .footer-social a:hover { background: var(--gold); color: #fff; }
-
-    /* ========== RESPONSIVE ========== */
-    @media (max-width: 900px) {
-      .hero .container { grid-template-columns: 1fr; text-align: center; }
-      .hero-content p { margin: 0 auto 28px; }
-      .hero-btns { justify-content: center; }
-      .hero-image { display: none; }
-      .hero { min-height: auto; padding: 100px 0 60px; }
-      .location-wrap { grid-template-columns: 1fr; }
-      footer .container { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        position: absolute; top: 68px; left: 0; right: 0;
-        background: rgba(250,250,248,0.98);
-        flex-direction: column; padding: 20px 24px; gap: 16px;
-        border-bottom: 1px solid var(--cream-dark);
-      }
-      .nav-links.open { display: flex; }
-      .menu-btn { display: block; }
-      .nav-cta { width: fit-content; }
-      .section-title { font-size: 1.5rem; }
-      .hero-content h1 { font-size: 2rem; }
-      .rooms-grid { grid-template-columns: 1fr; }
-      .testimonials-grid { grid-template-columns: 1fr; }
-      footer .container { grid-template-columns: 1fr; text-align: center; }
-      .footer-social { justify-content: center; }
-      .cta-section h2 { font-size: 1.5rem; }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- ====== NAVBAR ====== -->
-  <nav>
-    <div class="container">
-      <a href="#" class="logo">
-        <span class="logo-icon">🏨</span>
-        Hotel Garden
-      </a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#kamar">Kamar</a></li>
-        <li><a href="#fasilitas">Fasilitas</a></li>
-        <li><a href="#lokasi">Lokasi</a></li>
-        <li><a href="#testimoni">Testimoni</a></li>
-        <li><a href="#booking" class="nav-cta">Booking</a></li>
-      </ul>
-      <button class="menu-btn" onclick="toggleMenu()">☰</button>
-    </div>
-  </nav>
-
-  <!-- ====== HERO ====== -->
-  <section class="hero" id="home">
-    <div class="container">
-      <div class="hero-content">
-        <h1>Istirahat Nyaman di <br/>Pusat <span>Majalengka</span> 🌿</h1>
-        <p>
-          Hotel Garden — tempat nginep favorit pebisnis & wisatawan.
-          Kamar nyaman, harga ramah di kantong, lokasi strategis di pusat kota.
-        </p>
-        <div class="hero-btns">
-          <a href="#booking" class="btn-primary">Pesan Sekarang</a>
-          <a href="#kamar" class="btn-secondary">Lihat Kamar</a>
-        </div>
-      </div>
-      <div class="hero-image">
-        <div class="placeholder">
-          <span>🏨</span>
-          <span>Foto Hotel Garden Majalengka</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ====== KAMAR ====== -->
-  <section id="kamar">
-    <div class="container">
-      <h2 class="section-title">Pilihan Kamar</h2>
-      <div class="section-divider"></div>
-      <p class="section-sub">Kamar nyaman buat segala kebutuhan — dari solo traveller sampai liburan keluarga.</p>
-      <div class="rooms-grid">
-
-        <div class="room-card">
-          <div class="room-img std">
-            <div style="text-align:center;">
-              <div class="placeholder-icon">🛏️</div>
-              Standard Room
-            </div>
-          </div>
-          <div class="room-body">
-            <h3>Standard Room</h3>
-            <span class="badge">Kamar Cozy</span>
-            <p>Kamar cozy buat lo yang butuh tempat istirahat setelah seharian jalan atau meeting. AC, TV, WiFi — all complete.</p>
-            <div class="price">Rp250.000 <small>/ malam</small></div>
-            <a href="#booking" class="room-btn">Pesan →</a>
-          </div>
-        </div>
-
-        <div class="room-card">
-          <div class="room-img dlx">
-            <div style="text-align:center;">
-              <div class="placeholder-icon">🛋️</div>
-              Deluxe Room
-            </div>
-          </div>
-          <div class="room-body">
-            <h3>Deluxe Room</h3>
-            <span class="badge">Best Seller</span>
-            <p>Lebih luas, lebih adem. Pilihan tepat buat yang pengen ruang ekstra, cocok buat staycation atau kerja dari hotel.</p>
-            <div class="price">Rp350.000 <small>/ malam</small></div>
-            <a href="#booking" class="room-btn">Pesan →</a>
-          </div>
-        </div>
-
-        <div class="room-card">
-          <div class="room-img fam">
-            <div style="text-align:center;">
-              <div class="placeholder-icon">👨‍👩‍👧‍👦</div>
-              Family Room
-            </div>
-          </div>
-          <div class="room-body">
-            <h3>Family Room</h3>
-            <span class="badge">Hemat Keluarga</span>
-            <p>Buat liburan bareng keluarga? Ini jawabannya. Kapasitas 4 orang, kasur nyaman, kamar mandi luas.</p>
-            <div class="price">Rp500.000 <small>/ malam</small></div>
-            <a href="#booking" class="room-btn">Pesan →</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ====== FASILITAS ====== -->
-  <section id="fasilitas" style="background: var(--cream);">
-    <div class="container">
-      <h2 class="section-title">Fasilitas Hotel</h2>
-      <div class="section-divider"></div>
-      <p class="section-sub">Kenyamanan lo adalah prioritas kami. Fasilitas lengkap buat bikin nginep makin berkesan.</p>
-      <div class="facilities-grid">
-
-        <div class="facility-card">
-          <div class="icon">🍽️</div>
-          <h4>Restoran</h4>
-          <p>Makan enak tanpa keluar hotel — masakan khas Sunda & Indonesia siap memanjakan lidah.</p>
-        </div>
-        <div class="facility-card">
-          <div class="icon">📶</div>
-          <h4>WiFi Cepat</h4>
-          <p>Kerja lancar, streaming anti-buffering. Full WiFi di seluruh area hotel.</p>
-        </div>
-        <div class="facility-card">
-          <div class="icon">🅿️</div>
-          <h4>Parkir Luas</h4>
-          <p>Parkir mobil & motor luas dan aman — 24 jam CCTV.</p>
-        </div>
-        <div class="facility-card">
-          <div class="icon">🏢</div>
-          <h4>Ruang Meeting</h4>
-          <p>Butuh tempat rapat atau gathering? Kapasitas 30-50 orang, lengkap proyektor & sound system.</p>
-        </div>
-        <div class="facility-card">
-          <div class="icon">🧹</div>
-          <h4>Room Service</h4>
-          <p>Butuh apa aja? Tinggal telpon, kami siap bantu 24 jam.</p>
-        </div>
-        <div class="facility-card">
-          <div class="icon">🏊</div>
-          <h4>Kolam Renang</h4>
-          <p>Berenang santai setelah seharian beraktivitas. Area kolam bersih & nyaman.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ====== LOKASI ====== -->
-  <section id="lokasi">
-    <div class="container">
-      <div class="location-wrap">
-        <div class="location-info">
-          <h3>📍 Lokasi Strategis</h3>
-          <p>Hotel Garden — lokasi prime di pusat Kota Majalengka. Gampang diakses dari mana aja.</p>
-          <div class="location-list">
-            <div class="location-item">
-              <span class="emoji">🚗</span>
-              5 menit ke Alun-Alun Majalengka
-            </div>
-            <div class="location-item">
-              <span class="emoji">🚗</span>
-              10 menit ke Stasiun Majalengka
-            </div>
-            <div class="location-item">
-              <span class="emoji">🚗</span>
-              15 menit ke Terminal
-            </div>
-            <div class="location-item">
-              <span class="emoji">🚗</span>
-              30 menit ke Bandara Kertajati
-            </div>
-          </div>
-        </div>
-        <div class="location-map">
-          🗺️ Peta Lokasi — Hotel Garden Majalengka
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ====== TESTIMONI ====== -->
-  <section id="testimoni" style="background: var(--cream);">
-    <div class="container">
-      <h2 class="section-title">Kata Tamu</h2>
-      <div class="section-divider"></div>
-      <p class="section-sub">Apa kata mereka yang udah nginep di Hotel Garden?</p>
-      <div class="testimonials-grid">
-
-        <div class="testi-card">
-          <div class="quote-icon">"</div>
-          <div class="stars">★★★★★</div>
-          <p>Langganan nginep kalo ada urusan ke Majalengka. Kamar bersih, pelayanan ramah, harga terjangkau. Recommended!</p>
-          <div class="author">
-            <div class="avatar">RH</div>
-            <div>
-              <div class="name">Rudi H.</div>
-              <div class="role">Pebisnis, Jakarta</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="testi-card">
-          <div class="quote-icon">"</div>
-          <div class="stars">★★★★★</div>
-          <p>Keluarga betah banget nginep sini. Ada kolam renang, anak-anak happy. Makanannya juga enak!</p>
-          <div class="author">
-            <div class="avatar">SW</div>
-            <div>
-              <div class="name">Sari W.</div>
-              <div class="role">Wisatawan, Bandung</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="testi-card">
-          <div class="quote-icon">"</div>
-          <div class="stars">★★★★★</div>
-          <p>Lokasi strategis, dekat sama pusat kota. Cocok buat yang lagi dinas atau meeting di Majalengka.</p>
-          <div class="author">
-            <div class="avatar">AF</div>
-            <div>
-              <div class="name">Andi F.</div>
-              <div class="role">Karyawan Swasta, Cirebon</div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ====== CTA BOOKING ====== -->
-  <section class="cta-section" id="booking">
-    <div class="container">
-      <h2>Siap nginep di Hotel Garden? 🏨✨</h2>
-      <p>Klik tombol di bawah buat booking langsung atau hubungi kami via WhatsApp.<br/>Dapatkan harga spesial untuk reservasi online!</p>
-      <div class="cta-btns">
-        <a href="#" class="btn-primary">Booking Now</a>
-        <a href="#" class="btn-secondary">WhatsApp</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ====== FOOTER ====== -->
-  <footer>
-    <div class="container">
-      <div>
-        <a href="#" class="logo" style="margin-bottom:12px;display:inline-flex;">
-          <span class="logo-icon">🏨</span>
-          Hotel Garden
-        </a>
-        <p style="margin-top:12px;">Hotel nyaman di pusat Kota Majalengka. Tempat istirahat favorit pebisnis & wisatawan.</p>
-        <div class="footer-social">
-          <a href="#" aria-label="Instagram">📸</a>
-          <a href="#" aria-label="Facebook">👍</a>
-          <a href="#" aria-label="TikTok">🎵</a>
-        </div>
-      </div>
-      <div>
-        <h4>Kontak</h4>
-        <p>📍 Majalengka, Jawa Barat</p>
-        <p>📞 08XX-XXXX-XXXX</p>
-        <p>✉️ info@hotelgardenmajalengka.com</p>
-      </div>
-      <div>
-        <h4>Link</h4>
-        <p><a href="#kamar">Kamar</a></p>
-        <p><a href="#fasilitas">Fasilitas</a></p>
-        <p><a href="#lokasi">Lokasi</a></p>
-        <p><a href="#testimoni">Testimoni</a></p>
-      </div>
-      <div class="footer-bottom">
-        &copy; 2026 Hotel Garden Majalengka. All rights reserved.
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    function toggleMenu() {
-      document.getElementById('navLinks').classList.toggle('open');
-    }
-    // Close menu on link click
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        document.getElementById('navLinks').classList.remove('open');
-      });
-    });
-  </script>
-
-</body>
-</html>
+    .fade-up{opacity:0;transform:translateY(32px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+    .fade-up.visible{opacity:1;transform:translateY(0)}
+    .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+    nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(250,249,247,.88);backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,0,0,.05)}
+    nav .container{display:flex;align-items:center;justify-content:space-between;height:72px}
+    .logo{display:flex;align-items:center;gap:10px;font-family:'Playfair Display',serif;font-weight:700;font-size:1.25rem;color:var(--primary-dark)}
+    .logo-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem}
+    .nav-links{display:flex;gap:36px;align-items:center}
+    .nav-links a{font-size:.88rem;font-weight:500;color:var(--text);transition:color .2s}
+    .nav-links a:hover{color:var(--accent)}
+    .nav-cta{background:var(--primary);color:#fff!important;padding:10px 24px;border-radius:10px;font-weight:600;transition:all .3s!important}
+    .nav-cta:hover{background:var(--primary-dark)!important}
+    .menu-btn{display:none;background:none;border:none;font-size:1.6rem;cursor:pointer;color:var(--text)}
+    .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:120px 0 80px;background:linear-gradient(160deg,#f0ede6 0%,#e4e8df 40%,#f0ebe2 100%)}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 600px 400px at 85% 20%,rgba(184,150,90,.12) 0%,transparent 70%),radial-gradient(ellipse 500px 500px at 10% 80%,rgba(61,90,62,.08) 0%,transparent 70%);pointer-events:none}
+    .hero .container{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative}
+    .hero-content{max-width:540px}
+    .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(61,90,62,.08);color:var(--primary);font-size:.78rem;font-weight:600;padding:6px 14px;border-radius:24px;margin-bottom:24px;letter-spacing:.5px;text-transform:uppercase}
+    .hero-content h1{font-family:'Playfair Display',serif;font-size:3.2rem;font-weight:700;color:var(--primary-dark);line-height:1.15;margin-bottom:20px}
+    .hero-content h1 span{color:var(--accent)}
+    .hero-content p{font-size:1.08rem;color:var(--text-light);margin-bottom:36px;line-height:1.8}
+    .hero-btns{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+    .btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--primary);color:#fff;padding:16px 36px;border-radius:12px;font-weight:600;font-size:.92rem;transition:all .3s;border:none;cursor:pointer}
+    .btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(61,90,62,.25)}
+    .btn-secondary{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--primary-dark);padding:16px 36px;border-radius:12px;font-weight:600;font-size:.92rem;border:2px solid var(--primary);cursor:pointer;transition:all .3s}
+    .btn-secondary:hover{background:var(--primary);color:#fff;transform:translateY(-2px)}
+    .hero-stats{display:flex;gap:40px;margin-top:48px;padding-top:32px;border-top:1px solid rgba(0,0,0,.06)}
+    .hero-stat .number{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--primary-dark)}
+    .hero-stat .label{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .hero-image{position:relative;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);aspect-ratio:4/3}
+    .hero-image .placeholder{width:100%;height:100%;background:linear-gradient(135deg,#c5d1b8 0%,#d4c9a8 50%,#bfc7b1 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--primary-dark);font-weight:500;font-size:.95rem}
+    .hero-image .placeholder span:first-child{font-size:4rem}
+    .hero-image-badge{position:absolute;bottom:20px;left:20px;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);padding:12px 20px;border-radius:12px;display:flex;align-items:center;gap:10px;box-shadow:var(--shadow)}
+    .hero-image-badge .stars{color:var(--accent);font-size:.9rem}
+    .hero-image-badge .text{font-size:.78rem;font-weight:500}
+    .hero-image-badge .text strong{display:block;font-size:.85rem}
+    section{padding:100px 0}
+    .section-header{text-align:center;margin-bottom:64px}
+    .section-label{display:inline-block;font-size:.75rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
+    .section-title{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--primary-dark);margin-bottom:16px}
+    .section-sub{color:var(--text-light);font-size:1rem;max-width:560px;margin:0 auto;line-height:1.8}
+    .rooms-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+    .room-card{background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);transition:all .4s cubic-bezier(.22,1,.36,1);border:1px solid rgba(0,0,0,.04)}
+    .room-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg)}
+    .room-img{height:220px;position:relative;overflow:hidden}
+    .room-img .placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;font-weight:500;font-size:.9rem;color:var(--primary-dark);transition:transform .5s}
+    .room-card:hover .room-img .placeholder{transform:scale(1.05)}
+    .room-img .placeholder span:first-child{font-size:3rem}
+    .room-img.std{background:linear-gradient(135deg,#d4c9a8,#c5cbb8)}
+    .room-img.dlx{background:linear-gradient(135deg,#c5cbb8,#b8c4a8)}
+    .room-img.fam{background:linear-gradient(135deg,#c9b896,#d4c9a8)}
+    .room-badge{position:absolute;top:14px;left:14px;background:var(--accent);color:#fff;font-size:.7rem;font-weight:600;padding:4px 12px;border-radius:20px;text-transform:uppercase;letter-spacing:.5px}
+    .room-body{padding:28px}
+    .room-body h3{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:600;color:var(--primary-dark);margin-bottom:8px}
+    .room-body p{font-size:.88rem;color:var(--text-light);margin-bottom:20px;line-height:1.7}
+    .room-footer{display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid rgba(0,0,0,.05)}
+    .room-price{font-size:1.2rem;font-weight:700;color:var(--primary-dark)}
+    .room-price small{font-size:.75rem;font-weight:400;color:var(--text-muted)}
+    .room-book{display:inline-flex;align-items:center;gap:6px;color:var(--accent);font-weight:600;font-size:.85rem;transition:all .2s}
+    .room-book:hover{gap:10px;color:var(--primary)}
+    .facilities-section{background:var(--cream)}
+    .facilities-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .facility-card{background:var(--card);border-radius:var(--radius);padding:36px 28px;text-align:center;transition:all .3s;border:1px solid transparent}
+    .facility-card:hover{border-color:var(--accent);box-shadow:var(--shadow);transform:translateY(-4px)}
+    .facility-icon{width:56px;height:56px;background:var(--primary-light);border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:1.5rem;transition:background .3s}
+    .facility-card:hover .facility-icon{background:var(--accent-light)}
+    .facility-card h4{font-size:1rem;font-weight:600;color:var(--primary-dark);margin-bottom:8px}
+    .facility-card p{font-size:.85rem;color:var(--text-light);line-height:1.7}
+    .location-wrap{background:var(--cream);border-radius:var(--radius-lg);padding:56px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+    .location-info h3{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;color:var(--primary-dark);margin-bottom:16px}
+    .location-info p{color:var(--text-light);font-size:.92rem;margin-bottom:24px;line-height:1.8}
+    .location-list{display:flex;flex-direction:column;gap:14px}
+    .location-item{display:flex;align-items:center;gap:14px;font-size:.9rem;color:var(--text)}
+    .location-item .emoji{font-size:1.2rem}
+    .location-map{border-radius:var(--radius);overflow:hidden;aspect-ratio:4/3;box-shadow:var(--shadow)}
+    .location-map iframe{width:100%;height:100%;border:0}
+    .testimonials-section{background:var(--cream)}
+    .testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .testi-card{background:var(--card);border-radius:var(--radius);padding:32px 28px;position:relative;border:1px solid rgba(0,0,0,.04);transition:all .3s}
+    .testi-card:hover{box-shadow:var(--shadow);transform:translateY(-4px)}
+    .testi-quote{font-family:'Playfair Display',serif;font-size:3rem;color:var(--accent);opacity:.2;line-height:1;margin-bottom:-12px}
+    .testi-stars{color:var(--accent);font-size:.85rem;margin-bottom:12px;letter-spacing:2px}
+    .testi-card p{font-size:.9rem;color:var(--text-light);font-style:italic;margin:12px 0 24px;line-height:1.8}
+    .testi-author{display:flex;align-items:center;gap:12px}
+    .testi-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600;font-size:.85rem;flex-shrink:0}
+    .testi-name{font-weight:600;font-size:.88rem;color:var(--primary-dark)}
+    .testi-role{font-size:.78rem;color:var(--text-muted)}
+    .cta-section{background:linear-gradient(135deg,var(--primary-dark),var(--primary));padding:100px 0;text-align:center;position:relative;overflow:hidden}
+    .cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 400px 300px at 80% 50%,rgba(184,150,90,.15) 0%,transparent 70%);pointer-events:none}
+    .cta-section h2{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:#fff;margin-bottom:16px;position:relative}
+    .cta-section p{color:rgba(255,255,255,.8);font-size:1rem;margin-bottom:40px;max-width:500px;margin-left:auto;margin-right:auto;position:relative;line-height:1.8}
+    .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
+    .cta-section .btn-primary{background:var(--accent);color:#fff}
+    .cta-section .btn-primary:hover{background:#a68548}
+    .cta-section .btn-secondary{border-color:rgba(255,255,255,.4);color:#fff}
+    .cta-section .btn-secondary:hover{background:rgba(255,255,255,.1)}
+    footer{background:var(--cream);padding:56px 0 24px;color:var(--text-light);font-size:.85rem}
+    footer .container{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px}
+    footer h4{font-weight:600;color:var(--primary-dark);margin-bottom:16px;font-size:.9rem}
+    footer p,footer a{font-size:.85rem;color:var(--text-light)}
+    footer a:hover{
