@@ -208,6 +208,32 @@
   </div>
 
   <script>
+    // Fade-up animation on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Nav scroll effect
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('mainNav');
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile menu toggle
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+
     // Booking Modal
     function openBooking() {
       document.getElementById('bookingModal').classList.add('open');
